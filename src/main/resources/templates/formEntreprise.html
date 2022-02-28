@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http//www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="../static/css/monstyle.css">
+<style>
+	*{
+		box-sizing:border-box;
+		margin:0px;
+		padding:0px;
+	}
+	.containernav{
+		background-color:rgb(207, 207, 207);
+		width:100%;
+		height: 30px;
+		position:relative;
+		top:-8px;
+	}
+	.nav{
+		height:30px;
+		display:flex;
+		
+	}
+	.nav a{
+		text-decoration:none;
+		margin:8px;
+	}
+	.divform{
+		position:relative;
+		left:300px;
+		border:1px solid blue;
+		
+	}
+
+	
+
+</style>
+
+<title>Taxes</title>
+
+</head>
+<body>
+		 <header>
+		 	<div class="navbar navbar-default" > 
+				<div class="containernav container-fluid">
+					<ul class="nav navbar-nav">
+						<li><a th:href="@{/entreprises}">Entreprise</a></li>
+						<il><a th:href="@{/taxes}">Taxes</a></il>
+						<li><a th:href="@{/formEntreprises}">Saisie</a></li>
+						
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+					<a th:href="@{/login?logout}">Logout</a>
+					</ul>
+				</div >
+			</div>
+		 </header>
+		 
+		<div class="divform col -md-6 col-sm-6 col-x-12">
+			<div class="panel panel-primary"> 
+				<div class="panel panel-heading">Saisie d'une entreprise </div >
+				<div class="panel-body">
+				<form th:action="@{saveEntreprise}" method="post"> 
+					<div class="form-group">
+						<label class="control-label"> Nom:</label >
+						<input class="form-control" type="text" name="nom" th:value="${entreprise.nom}"/>
+						<span></span>
+					</div  >
+					<div class="form-group">
+						<label class="control-label"> Raison sociale:</label>
+						<input class="form-control" type="text" name="raisonSociale" th:value="${entreprise.nom}"/>
+						<span></span>
+					</div  >
+							<div class="form-group">
+						<label class="control-label"> Email:</label>
+						<input class="form-control" type="text" name="email" th:value="${entreprise.nom}"/>
+						<span></span>
+					<button class="btn btn-primary">Save</button>
+				</form>
+				</div>
+			</div>
+				 
+			
+	    
+	    </div >
+		
+		
+</body>
+
+</html>
